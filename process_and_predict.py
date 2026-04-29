@@ -298,6 +298,10 @@ def process_data(config):
     non_readable = []
     rare_atoms_ids = []
     for index, row in tqdm(df.iterrows(), total=df.shape[0]):
+        if not os.path.isfile(row["sdf_file"]):
+            non_readable.append(row["unique_id"])
+            print(f"File not found for {row['unique_id']} at {row['sdf_file']}")
+            continue    
         suppl = Chem.SDMolSupplier(row["sdf_file"], removeHs=False)
         assert(len(suppl) == 1)
         lig = suppl[0]
