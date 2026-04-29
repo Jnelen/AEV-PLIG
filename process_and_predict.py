@@ -562,7 +562,7 @@ def make_predictions(config):
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--trained_model_name', type=str, default='20231116-181233_model_GATv2Net_pdbbind_core')
+    parser.add_argument('--trained_model_name', type=str, default='model_GATv2Net_ligsim90_fep_benchmark')
     parser.add_argument('--dataset_csv', type=str, default='data/example_dataset.csv')
     parser.add_argument('--data_name', type=str, default='example')
     parser.add_argument('--hidden_dim', type=int, default=256)
